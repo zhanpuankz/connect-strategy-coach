@@ -1,40 +1,54 @@
+import { forwardRef } from "react";
 import { CoachInsight } from "@/lib/game/coach";
 import { CheckCircle2, AlertTriangle, Info, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-export function CoachPanel({ insights }: { insights: CoachInsight[] }) {
+type Props = { insights: CoachInsight[]; glow?: boolean };
+
+export const CoachPanel = forwardRef<HTMLDivElement, Props>(({ insights, glow }, ref) => {
   if (!insights.length) return null;
   return (
-    <div className="space-y-3 animate-fade-up">
-      <div className="flex items-center gap-2">
-        <Sparkles className="h-5 w-5 text-primary" />
-        <h3 className="text-lg font-semibold">AI Coach</h3>
+    <div
+      ref={ref}
+      className={cn(
+        "relative rounded-[24px] gradient-card card-shadow p-5 sm:p-6 overflow-hidden animate-fade-up-slow",
+        glow && "animate-coach-glow",
+      )}
+    >
+      {/* Ambient red wash */}
+      <div className="pointer-events-none absolute -inset-x-10 -top-10 h-32 bg-[radial-gradient(ellipse_at_50%_0%,oklch(0.66_0.22_22/0.28),transparent_70%)]" />
+
+      <div className="relative flex items-center gap-2.5 mb-4">
+        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/15 text-primary">
+          <Sparkles className="h-4 w-4" />
+        </div>
+        <div>
+          <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Post-game</div>
+          <h3 className="text-lg font-semibold tracking-tight">AI Coach</h3>
+        </div>
       </div>
-      <div className="space-y-2">
+
+      <div className="relative space-y-2.5">
         {insights.map((i, idx) => {
           const Icon = i.tone === "positive" ? CheckCircle2 : i.tone === "warning" ? AlertTriangle : Info;
           return (
             <div
               key={idx}
-              className={cn(
-                "rounded-xl border p-3 gradient-card",
-                i.tone === "positive" && "border-emerald-500/40",
-                i.tone === "warning" && "border-amber-500/40",
-                i.tone === "info" && "border-border",
-              )}
+              className="rounded-2xl glass p-3.5 animate-fade-up"
+              style={{ animationDelay: `${idx * 80}ms` }}
             >
-              <div className="flex gap-2.5">
+              <div className="flex gap-3">
                 <Icon
                   className={cn(
                     "h-4 w-4 shrink-0 mt-0.5",
-                    i.tone === "positive" && "text-emerald-500",
-                    i.tone === "warning" && "text-amber-500",
+                    i.tone === "positive" && "text-emerald-400",
+                    i.tone === "warning" && "text-amber-400",
                     i.tone === "info" && "text-primary",
                   )}
                 />
-                <div>
-                  <div className="text-sm font-medium">{i.title}</div>
-                  <p className="text-xs text-muted-foreground mt-0.5">{i.body}</p>
+                <div className="min-w-0">
+                  <div className="text-sm font-semibold">{i.title}</div>
+                  <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{i.body}</p>
                 </div>
               </div>
             </div>
@@ -43,4 +57,5 @@ export function CoachPanel({ insights }: { insights: CoachInsight[] }) {
       </div>
     </div>
   );
-}
+});
+CoachPanel.displayName = "CoachPanel";
