@@ -13,16 +13,21 @@ const players = [
 
 export function Leaderboard() {
   return (
-    <div className="rounded-2xl border border-border gradient-card p-5">
-      <div className="flex items-center gap-2 mb-4">
-        <Crown className="h-5 w-5 text-amber-500" />
-        <h3 className="font-semibold">Top players · Almaty</h3>
+    <div className="rounded-[28px] gradient-card card-shadow p-6">
+      <div className="flex items-center gap-2.5 mb-5">
+        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-amber-500/15 text-amber-400">
+          <Crown className="h-4 w-4" />
+        </div>
+        <div>
+          <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Top players</div>
+          <h3 className="font-semibold tracking-tight">Almaty rankings</h3>
+        </div>
       </div>
-      <ul className="space-y-2">
+      <ul className="space-y-2.5">
         {players.map((p, i) => (
           <li key={p.name} className="flex items-center justify-between text-sm">
             <div className="flex items-center gap-3">
-              <span className={`w-6 text-center font-mono font-bold ${i < 3 ? "text-primary" : "text-muted-foreground"}`}>
+              <span className={`w-6 text-center font-mono font-bold tabular-nums ${i < 3 ? "text-primary" : "text-muted-foreground"}`}>
                 {i + 1}
               </span>
               <div>
@@ -32,7 +37,7 @@ export function Leaderboard() {
                 </div>
               </div>
             </div>
-            <div className="font-mono text-sm font-semibold">{p.rating}</div>
+            <div className="font-mono text-sm font-semibold tabular-nums">{p.rating}</div>
           </li>
         ))}
       </ul>
