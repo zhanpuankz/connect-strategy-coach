@@ -72,14 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "connect four arena" },
+      { name: "description", content: "Connect Four Strategist is a web app for learning Connect Four tactics with AI coaching." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "connect four arena" },
+      { property: "og:description", content: "Connect Four Strategist is a web app for learning Connect Four tactics with AI coaching." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "connect four arena" },
+      { name: "twitter:description", content: "Connect Four Strategist is a web app for learning Connect Four tactics with AI coaching." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2e0992cb-acea-408a-9213-c74ec5aace08/id-preview-4341281a--d763788d-e570-409e-908f-e32ad49a4a4f.lovable.app-1779905403484.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2e0992cb-acea-408a-9213-c74ec5aace08/id-preview-4341281a--d763788d-e570-409e-908f-e32ad49a4a4f.lovable.app-1779905403484.png" },
     ],
     links: [
       {
