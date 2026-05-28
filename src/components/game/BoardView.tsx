@@ -31,7 +31,8 @@ export function BoardView({
   };
 
   return (
-    <div className="relative w-full mx-auto max-w-[min(95vw,580px)]">
+    <div className="relative w-full mx-auto max-w-[min(96vw,640px)]">
+
       {/* Floating frame — matte black aluminum */}
       <div className="relative rounded-[32px] gradient-frame frame-shadow matte p-3 sm:p-4">
         {/* Ambient red underglow */}
