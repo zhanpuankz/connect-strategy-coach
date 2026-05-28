@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { GameArena } from "@/components/game/GameArena";
 import { Leaderboard } from "@/components/game/Leaderboard";
+import { SkinsPanel } from "@/components/game/SkinsPanel";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Brain, Zap, Target, Sparkles, ArrowRight } from "lucide-react";
 import { sfx } from "@/lib/audio";
@@ -9,9 +10,11 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Connect Four Arena — Train tactical thinking" },
-      { name: "description", content: "A premium Connect Four training app with AI coach, difficulty levels, match history, and post-game analysis." },
+      { name: "description", content: "A premium Connect Four training app with AI coach, difficulty levels, timer mode, match history, and post-game analysis." },
       { property: "og:title", content: "Connect Four Arena" },
       { property: "og:description", content: "Train tactical thinking with AI-coached Connect Four games." },
+      { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
+      { name: "theme-color", content: "#0B0B0D" },
     ],
   }),
   component: Index,
@@ -19,21 +22,20 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="min-h-screen bg-background relative overflow-x-hidden">
-      {/* Ambient room lighting */}
+    <div className="min-h-screen bg-background relative overflow-x-hidden theme-transition pb-24 lg:pb-0">
       <div className="pointer-events-none fixed inset-0 -z-10 gradient-hero" />
       <div className="pointer-events-none fixed -top-40 left-1/2 -translate-x-1/2 h-[520px] w-[820px] -z-10 rounded-full opacity-60 animate-ambient"
            style={{ background: "radial-gradient(closest-side, oklch(0.66 0.22 22 / 0.18), transparent)" }} />
 
       {/* Header */}
       <header className="sticky top-0 z-30 glass border-b border-white/[0.04]">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 sm:px-5 py-3 sm:py-3.5">
           <a href="#top" onClick={() => sfx.click()} className="flex items-center gap-2.5">
             <div className="flex gap-0.5">
               <span className="h-3 w-3 rounded-full bg-player-1 disc-shadow" />
               <span className="h-3 w-3 rounded-full bg-player-2 disc-shadow" />
             </div>
-            <span className="font-semibold tracking-tight">Connect Four Arena</span>
+            <span className="font-semibold tracking-tight text-sm sm:text-base">Connect Four Arena</span>
           </a>
           <div className="flex items-center gap-2">
             <a
@@ -50,20 +52,20 @@ function Index() {
 
       {/* Hero */}
       <section id="top" className="relative">
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:py-28 text-center">
+        <div className="mx-auto max-w-6xl px-5 py-12 sm:py-28 text-center">
           <div className="inline-flex items-center gap-1.5 rounded-full glass px-3.5 py-1.5 text-[11px] font-medium tracking-wide animate-fade-up">
             <Sparkles className="h-3 w-3 text-primary" />
             Strategy training, powered by AI coaching
           </div>
-          <h1 className="mt-6 text-5xl sm:text-7xl font-semibold tracking-[-0.04em] animate-fade-up">
+          <h1 className="mt-6 text-4xl sm:text-7xl font-semibold tracking-[-0.04em] animate-fade-up">
             Sharpen your<br />
-            <span className="bg-gradient-to-b from-white to-white/60 bg-clip-text text-transparent">tactical thinking.</span>
+            <span className="bg-gradient-to-b from-foreground to-foreground/60 bg-clip-text text-transparent">tactical thinking.</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg text-muted-foreground animate-fade-up font-light leading-relaxed">
+          <p className="mx-auto mt-5 sm:mt-6 max-w-2xl text-base sm:text-lg text-muted-foreground animate-fade-up font-light leading-relaxed">
             A focused practice tool for Connect Four. Short matches, immediate AI feedback,
             and the calm interface of a real training app.
           </p>
-          <div className="mt-9 flex flex-wrap items-center justify-center gap-3 animate-fade-up">
+          <div className="mt-8 sm:mt-9 flex flex-wrap items-center justify-center gap-3 animate-fade-up">
             <a
               href="#play"
               onClick={() => sfx.click()}
@@ -80,7 +82,7 @@ function Index() {
             </a>
           </div>
 
-          <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl mx-auto">
+          <div className="mt-12 sm:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl mx-auto">
             <Feature icon={<Brain className="h-4 w-4" />} title="AI Coach" body="Plain-language feedback after every match." />
             <Feature icon={<Target className="h-4 w-4" />} title="3 difficulty levels" body="Easy, Medium, and a real Hard challenge." />
             <Feature icon={<Zap className="h-4 w-4" />} title="Instant analysis" body="Missed blocks, center control, diagonal threats." />
@@ -89,12 +91,17 @@ function Index() {
       </section>
 
       {/* Game */}
-      <section id="play" className="mx-auto max-w-6xl px-5 pb-24">
+      <section id="play" className="mx-auto max-w-6xl px-3 sm:px-5 pb-16 sm:pb-24">
         <GameArena />
       </section>
 
+      {/* Skins + Tournament */}
+      <section id="pro" className="mx-auto max-w-6xl px-4 sm:px-5 pb-16 sm:pb-24">
+        <SkinsPanel />
+      </section>
+
       {/* Why + Leaderboard */}
-      <section id="why" className="mx-auto max-w-6xl px-5 pb-24">
+      <section id="why" className="mx-auto max-w-6xl px-5 pb-16 sm:pb-24">
         <div className="grid lg:grid-cols-2 gap-10 items-start">
           <div className="space-y-5">
             <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Why train here</div>
