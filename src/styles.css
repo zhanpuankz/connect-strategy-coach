@@ -253,3 +253,12 @@
               background-color 0.3s ease,
               box-shadow 0.4s ease;
 }
+
+/* Bottom sheet slide-up (mobile coach reveal) */
+@keyframes sheet-up {
+  from { transform: translateY(110%); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+.animate-sheet-up {
+  animation: sheet-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
