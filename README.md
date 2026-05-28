@@ -1,4 +1,4 @@
- Connect Strategy Coach
+ Connect Strategy Coach 11
 
 Connect Strategy Coach is a modern web platform based on the classic Connect Four game. It is not just a simple game, but a strategy training product where users can play, learn from their mistakes, and improve tactical thinking through AI-powered feedback.
 
