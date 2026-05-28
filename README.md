@@ -47,3 +47,4 @@ https://connect-strategy-coach.lovable.app
 ## Live Demo
 
 https://connect-strategy-coach.lovable.app
+also see how it works on phone. Look at the file above!)))
