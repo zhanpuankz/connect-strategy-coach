@@ -1,46 +1,32 @@
- Connect Strategy Coach 11
+## About The Project
 
-Connect Strategy Coach is a modern web platform based on the classic Connect Four game. It is not just a simple game, but a strategy training product where users can play, learn from their mistakes, and improve tactical thinking through AI-powered feedback.
+Tired of simple Connect Four games where you play one match and leave after 2 minutes?
 
- Who is it for?
+Connect Strategy Coach is a modern version of Connect Four with AI integration, strategy coaching, timer modes, premium systems, and full mobile support. The main idea was to turn a simple classic game into something that feels more like a real modern product instead of just another browser game.
 
-The product is designed for beginners, students, kids, and casual players who want to improve their strategic thinking in a simple and fun way. It can also be used as a short brain-training game for people who enjoy quick tactical challenges.
+Here you can play against AI bots with Easy, Medium, and Hard difficulty modes, challenge your friends, and even play comfortably from your phone anytime during the day or night thanks to fully optimized mobile support and both Dark / Light themes.
 
-What I built
+To make matches more intense and competitive, I added timer modes inspired by chess:
 
-- Classic 7x6 Connect Four board
-- Gravity-based disc dropping
-- Turn-based gameplay
-- Win detection for horizontal, vertical, and diagonal lines
-- Draw detection
-- Play against AI
-- Multiple AI difficulty levels
-- Winning line highlight
-- Match history
-- Score tracking
-- Light and dark mode
-- Responsive mobile-friendly design
-- AI Coach after the game
-- Premium Apple-inspired interface
+* 30 seconds
+* 45 seconds
+* 60 seconds
 
-Why it is valuable?
+After every match, players receive feedback and tips from AI Sensei, which analyzes the game and helps improve strategy instead of only showing a simple “win” or “lose” screen.
 
-Most Connect Four websites only let users play. Connect Strategy Coach focuses on learning. After each game, the AI Coach gives feedback about the match and helps the player understand mistakes, missed opportunities, and better strategic moves.
+The project also includes premium product systems to demonstrate business and retention thinking. For a small subscription, players can unlock:
 
-The goal is to make a simple game feel like a real learning product: short matches, clear feedback, smooth design, and replay value.
+* online multiplayer
+* tournament mode with friends
+* premium board skins
+* extra AI Sensei insights
+* future competitive features
 
-Product vision
+A lot of attention was also placed on user comfort and replayability:
+smooth animations, mobile-first design, premium UI, timer pressure, progression feeling, AI feedback, match history, and dark/light modes all help make the experience more enjoyable and encourage players to come back and play again.
 
-In the future, this project can become a full strategy-training platform with:
+The goal of this project was not just to recreate Connect Four, but to build an early prototype of a modern AI-powered strategy gaming platform.
 
-- Online multiplayer
-- User accounts
-- Global and city leaderboards
-- Deeper AI move analysis
-- Personalized training tasks
-- Progress tracking
-- Premium themes and skins
-- Mobile app version
 
 Tech Stack
 
@@ -55,7 +41,7 @@ to play this game open this link
  |
 \/
 
-https://lovable.dev/projects/d763788d-e570-409e-908f-e32ad49a4a4f
+https://connect-strategy-coach.lovable.app
 
 
 ## Live Demo
