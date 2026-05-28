@@ -14,8 +14,9 @@ function ac(): AudioContext | null {
       const AC = window.AudioContext || (window as any).webkitAudioContext;
       ctx = new AC();
       masterGain = ctx.createGain();
-      masterGain.gain.value = 0.6;
+      masterGain.gain.value = 0.9;
       masterGain.connect(ctx.destination);
+
       try { muted = localStorage.getItem(MUTE_KEY) === "1"; } catch {}
     } catch { return null; }
   }
